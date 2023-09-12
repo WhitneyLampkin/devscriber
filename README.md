@@ -33,7 +33,7 @@ For all intents and purposes, this is a fun, learning project. The goal is to bu
 
 The planned features for DevScriber at the time of writing are as follows:
 
-- README.md file generator
+⭐ README.md file generator
 
 ## Fun Facts
 
@@ -41,8 +41,10 @@ This project is intended for personal use, but I still wanted to give it a meani
 
 - The tool's purpose is to make scaffolding of common development documentation easier, thus it is a scribe to developers or a dev's scribe.
 - DevScribe was the first option but DevScriber had a better ring to it and still makes sense.
-    - ...a scriber is a tool used to mark materials like wood, steel, metal or plastics.
+    - ...a scriber is a tool used to mark materials like wood, steel, metal or plastics. Similarly, documentation _marks_ the code that developer's write.
 - DevScribe (DevScriber) is also a cute play on the word describe (describer).
+
+Also, all design credit for the DevScriber logo is due to the new [AI-powered Bing Search Engine](https://www.bing.com/search?q=Bing%20AI&showconv=1&form=MW00X7).
 
 ## License
 
