@@ -1,0 +1,7 @@
+TODO List
+
+1. Allow users to choose between any of the available templates.
+2. Validate image Url
+    - Allow customizable images
+3. Dynamically generate file content
+4. Finish adding unit tests
