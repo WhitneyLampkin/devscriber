@@ -32,10 +32,17 @@ func main() {
 		exitGracefully(err)
 	}
 
+	fmt.Println("+-+-+-+-+-+-+-+-+-+-+")
+	fmt.Println("|D|e|v|S|c|r|i|b|e|r|")
+	fmt.Println("+-+-+-+-+-+-+-+-+-+-+")
+
+	fmt.Println("\r\nGenerating new file with the following values:")
+	fmt.Printf("- name: %s", inputs.name)
+	fmt.Printf("\r\n- template: %s", inputs.template)
+	fmt.Printf("\r\n- imageUrl: %s", inputs.imageUrl)
+
 	// Generate new file
 	generateFile(inputs)
-
-	fmt.Println(inputs)
 }
 
 // Gets user input from the terminal and validates it
@@ -119,7 +126,7 @@ func generateFile(inputs userInput) (string, error) {
 		return "", errors.New("cannot create new file at this time, please try again")
 	}
 
-	fmt.Println(destination.Name())
+	fmt.Printf("\r\n\r\nThe following file was added to the current directory: %s\r\n", destination.Name())
 
 	return "", nil
 }
