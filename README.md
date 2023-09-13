@@ -34,6 +34,7 @@ For all intents and purposes, this is a fun, learning project. The goal is to bu
 The planned features for DevScriber at the time of writing are as follows:
 
 ⭐ README.md file generator
+⭐ README.md file updater (used to overwrite the current README.md)
 
 ## Fun Facts
 
