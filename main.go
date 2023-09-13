@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-// A userInput stores the options provided by the user.
+// A userInput stores the options provided by the user
 type userInput struct {
 	template string
 	name     string
@@ -18,6 +18,7 @@ type userInput struct {
 	// TODO: add optional user input variable for destination filepath
 }
 
+// The entry point of the application
 func main() {
 	// Help info displayed when the --help flag is provided
 	flag.Usage = func() {
@@ -47,7 +48,7 @@ func getUserInput() (userInput, error) {
 
 	// Define flags for the template, name and imageUrl arguments
 	template := flag.String("template", "readme-template", "Template type to base the new document on")
-	name := flag.String("name", "README.md", "Name of the new document")
+	name := flag.String("name", "README", "Name of the new document")
 	imageUrl := flag.String("imageUrl", "./assests/default_image.png", "Url of image to use to decorate the document")
 
 	// Parse the flag arguments from the terminal
@@ -123,6 +124,7 @@ func generateFile(inputs userInput) (string, error) {
 	return "", nil
 }
 
+// Ensures the chosen template still exists
 func validateTemplatePath(templatePath string) (bool, error) {
 	// Validate file exists
 	if _, err := os.Stat(templatePath); err != nil && os.IsNotExist(err) {
@@ -133,11 +135,13 @@ func validateTemplatePath(templatePath string) (bool, error) {
 	return true, nil
 }
 
+// Terminates the execution of the program when unexpected errors occur
 func exitGracefully(err error) {
 	fmt.Fprintf(os.Stderr, "error: %v\n", err)
 	os.Exit(1)
 }
 
+// Checks for errors and terminates the application
 func check(e error) {
 	if e != nil {
 		exitGracefully(e)
