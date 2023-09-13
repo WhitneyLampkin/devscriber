@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestDevscriber(t *testing.T) {
+func TestMain(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Devscriber Suite")
+	RunSpecs(t, "Main Suite")
 }
