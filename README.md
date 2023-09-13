@@ -39,6 +39,20 @@ The planned features for DevScriber at the time of writing are as follows:
 <br />
 ⭐ Random icon image generator
 
+## Usage
+
+```txt
+Usage: devscriber [OPTIONS]...
+
+Options:
+  -imageUrl string
+        Url of image to use to decorate the document (default "{PLACE_HOLDER}")
+  -name string
+        Name of the new document (default "README.md")
+  -template string
+        Template type to base the new document on (default "readme-template")
+```
+
 ## Fun Facts
 
 This project is intended for personal use, but I still wanted to give it a meaningful name and custom icon to make it feel more _official_. There are a few hidden meanings in the tool's name:
