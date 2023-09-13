@@ -62,7 +62,7 @@ This project is intended for personal use, but I still wanted to give it a meani
     - ...a scriber is a tool used to mark materials like wood, steel, metal or plastics. Similarly, documentation _marks_ the code that developer's write.
 - DevScribe (DevScriber) is also a cute play on the word describe (describer).
 
-Also, all design credit for the DevScriber logo is due to the new [AI-powered Bing Search Engine](https://www.bing.com/search?q=Bing%20AI&showconv=1&form=MW00X7).
+Also, all design credit for the DevScriber logo and default image is due to the new [AI-powered Bing Search Engine](https://www.bing.com/search?q=Bing%20AI&showconv=1&form=MW00X7).
 
 ## License
 
