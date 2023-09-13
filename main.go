@@ -126,7 +126,7 @@ func generateFile(inputs userInput) (string, error) {
 		return "", errors.New("cannot create new file at this time, please try again")
 	}
 
-	fmt.Printf("\r\n\r\nThe following file was added to the current directory: %s\r\n", destination.Name())
+	fmt.Printf("\r\n\r\nSuccess: %s was added to the current directory\r\n", destination.Name())
 
 	return "", nil
 }
