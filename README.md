@@ -29,7 +29,7 @@
 
 DevScriber aims to provide a personal scribe to developers in the form of a command-line tool to simplify the documentation process.
 
-For all intents and purposes, this is a fun, learning project. The goal is to build a consistent practice of daily Golang development. However, if development of the tool advances to the point of practical use, that would be an added bonus.
+For all intents and purposes, this is a fun, learning project. The goal is to build a consistent practice of daily Golang development. If development of the tool advances to the point of practical use, that would be an added bonus.
 
 The planned features for DevScriber at the time of writing are as follows:
 
@@ -46,7 +46,7 @@ Usage: devscriber [OPTIONS]...
 
 Options:
   -imageUrl string
-        Url of image to use to decorate the document (default "{PLACE_HOLDER}")
+        Url of image to use to decorate the document (default "./assests/default_image.png")
   -name string
         Name of the new document (default "README.md")
   -template string
