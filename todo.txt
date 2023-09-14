@@ -3,7 +3,7 @@ TODO List
 1. Template Files
     - Allow users to choose between any of the available templates.
     - Allow users to overwrite existing files w/ warnings and acknowledgement
-    - Dynamically generate file content
+    - Dynamically generate file content (automated changelog, custom image, feature list, etc.)
 2. Validate image Url
     - Allow customizable images
 3. Finish adding unit tests
