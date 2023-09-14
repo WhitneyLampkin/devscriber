@@ -33,11 +33,13 @@ For all intents and purposes, this is a fun, learning project. The goal is to bu
 
 The planned features for DevScriber at the time of writing are as follows:
 
-⭐ README.md file generator 
-<br />
-⭐ README.md file updater (used to overwrite the current README.md)
-<br />
-⭐ Random icon image generator
+⭐ README.md file generator<br />
+⭐ CHANGELOG.md file generator<br />
+⭐ CONTRIBUTING.md file generator<br />
+⭐ CODE_OF_CONDUCT.md file generator<br />
+⭐ GitHub user profile README.md file generator<br />
+⭐ File updater (used to replace existing files)<br />
+⭐ User customizatible filenames, titles, images and shield badges
 
 ## Usage
 
