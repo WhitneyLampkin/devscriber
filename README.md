@@ -39,7 +39,7 @@ The planned features for DevScriber at the time of writing are as follows:
 ⭐ CODE_OF_CONDUCT.md file generator<br />
 ⭐ GitHub user profile README.md file generator<br />
 ⭐ File updater (used to replace existing files)<br />
-⭐ User customizatible filenames, titles, images and shield badges
+⭐ Customizable filenames, titles, images and shield badges
 
 ## Usage
 
