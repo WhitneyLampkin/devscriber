@@ -40,25 +40,46 @@ var _ = Describe("Main", func() {
 
 		Context("when no user arguments are provided", func() {
 			It("should also return a valid default userInput object", func() {
+				os.Args = []string{"cmd"}
+				result, err := getUserInput()
 
+				Expect(err).To(BeNil())
+				Expect(result.template).To(Equal(defaultInput.template))
+				Expect(result.name).To(Equal(defaultInput.name))
+				Expect(result.imageUrl).To(Equal(defaultInput.imageUrl))
 			})
 		})
 
 		Context("when template is invalid", func() {
 			It("should return invalid template error", func() {
+				expectedErr := errors.New("invalid template value. use readme-template or readme")
+				os.Args = []string{"cmd", "--template=f4k3"}
+				result, err := getUserInput()
 
+				Expect(err).To(Equal(expectedErr))
+				Expect(result).To(Equal(userInput{}))
 			})
 		})
 
 		Context("when name is invalid", func() {
 			It("should return invalid name error", func() {
+				expectedErr := errors.New("there was an error setting the document's name")
+				os.Args = []string{"cmd", "--name="}
+				result, err := getUserInput()
 
+				Expect(err).To(Equal(expectedErr))
+				Expect(result).To(Equal(userInput{}))
 			})
 		})
 
 		Context("when imageUrl is invalid", func() {
 			It("should return invalid imageUrl error", func() {
+				expectedErr := errors.New("there was an error setting the image's Url")
+				os.Args = []string{"cmd", "--imageUrl="}
+				result, err := getUserInput()
 
+				Expect(err).To(Equal(expectedErr))
+				Expect(result).To(Equal(userInput{}))
 			})
 		})
 	})
