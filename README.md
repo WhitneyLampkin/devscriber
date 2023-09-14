@@ -45,6 +45,10 @@ The planned features for DevScriber at the time of writing are as follows:
 ## Usage
 
 ```txt
++-+-+-+-+-+-+-+-+-+-+
+|D|e|v|S|c|r|i|b|e|r|
++-+-+-+-+-+-+-+-+-+-+
+
 Usage: devscriber [OPTIONS]...
 
 Options:
