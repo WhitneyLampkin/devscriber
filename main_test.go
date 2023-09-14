@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"os"
 
@@ -58,6 +59,27 @@ var _ = Describe("Main", func() {
 		Context("when imageUrl is invalid", func() {
 			It("should return invalid imageUrl error", func() {
 
+			})
+		})
+	})
+
+	Describe("Validate template path", func() {
+		Context("when the template exists", func() {
+			It("should return true", func() {
+				isValidTemplate, err := validateTemplatePath("README.md")
+
+				Expect(err).To(BeNil())
+				Expect(isValidTemplate).To(Equal(true))
+			})
+		})
+
+		Context("when the template doesn't exist", func() {
+			It("should return false and a file does not exist error", func() {
+				expectedErr := errors.New("file f4k3f1l3.md does not exist")
+				isValidTemplate, err := validateTemplatePath("f4k3f1l3.md")
+
+				Expect(err).To(Equal(expectedErr))
+				Expect(isValidTemplate).To(Equal(false))
 			})
 		})
 	})
