@@ -22,7 +22,10 @@ type userInput struct {
 func main() {
 	// Help info displayed when the --help flag is provided
 	flag.Usage = func() {
-		fmt.Printf("Usage: %s [OPTIONS]...\n\nOptions:\n", os.Args[0])
+		fmt.Println("+-+-+-+-+-+-+-+-+-+-+")
+		fmt.Println("|D|e|v|S|c|r|i|b|e|r|")
+		fmt.Println("+-+-+-+-+-+-+-+-+-+-+")
+		fmt.Printf("\r\nUsage: %s [OPTIONS]...\n\nOptions:\n", os.Args[0])
 		flag.PrintDefaults()
 	}
 
