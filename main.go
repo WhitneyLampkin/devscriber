@@ -31,9 +31,7 @@ func main() {
 
 	// Get user input
 	inputs, err := getUserInput()
-	if err != nil {
-		exitGracefully(err)
-	}
+	check(err)
 
 	fmt.Println("+-+-+-+-+-+-+-+-+-+-+")
 	fmt.Println("|D|e|v|S|c|r|i|b|e|r|")
@@ -45,7 +43,8 @@ func main() {
 	fmt.Printf("\r\n- imageUrl: %s", inputs.imageUrl)
 
 	// Generate new file
-	generateFile(inputs)
+	_, err = generateFile(inputs)
+	check(err)
 }
 
 // Gets user input from the terminal and validates it
@@ -95,9 +94,8 @@ func generateFile(inputs userInput) (string, error) {
 	}
 
 	// Check that template filepath still exists
-	if _, err := validateTemplatePath(templatePath); err != nil {
-		exitGracefully(err)
-	}
+	_, err := validateTemplatePath(templatePath)
+	check(err)
 
 	// Open template file
 	newDocument, err := os.Open(templatePath)
