@@ -115,7 +115,8 @@ func generateFile(inputs userInput) (string, error) {
 	// Create new destination file location
 	currentTime := time.Now().UTC().Nanosecond()
 	timeString := strconv.Itoa(currentTime)
-	destination, err := os.Create(workingDir + "/" + "README_" + timeString + ".md")
+	newFilename := "README_" + timeString + ".md"
+	destination, err := os.Create(workingDir + "/" + newFilename)
 	if err != nil {
 		return "", errors.New("error creating the new file destination")
 	}
@@ -127,7 +128,7 @@ func generateFile(inputs userInput) (string, error) {
 		return "", errors.New("cannot create new file at this time, please try again")
 	}
 
-	fmt.Printf("\r\n\r\nSuccess: %s was added to the current directory\r\n", destination.Name())
+	fmt.Printf("\r\n\r\nSuccess: %s was added to the current directory\r\n", newFilename)
 
 	return "", nil
 }

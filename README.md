@@ -37,6 +37,7 @@ The planned features for DevScriber at the time of writing are as follows:
 ⭐ CHANGELOG.md file generator<br />
 ⭐ CONTRIBUTING.md file generator<br />
 ⭐ CODE_OF_CONDUCT.md file generator<br />
+⭐ RELEASE_NOTES.md file generator<br />
 ⭐ GitHub user profile README.md file generator<br />
 ⭐ File updater (used to replace existing files)<br />
 ⭐ Customizable filenames, titles, images and shield badges
