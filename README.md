@@ -67,6 +67,10 @@ This project is intended for personal use, but I still wanted to give it a meani
 
 Also, all design credit for the DevScriber logo and default image is due to the new [AI-powered Bing Search Engine](https://www.bing.com/search?q=Bing%20AI&showconv=1&form=MW00X7).
 
+## Acknowledgements
+
+Special thanks goes to [Ulises Martinez](https://github.com/mx-ulises), who provided the inspiration for this project. Thank you for acknowledging the effort I put into including READMEs with each of my GitHub repositories and inspiring me to make it easier for others to do the same.
+
 ## License
 
 GNU General Public License 3.0, see [LICENSE](./LICENSE).
