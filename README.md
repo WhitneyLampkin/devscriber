@@ -33,11 +33,11 @@ For all intents and purposes, this is a fun, learning project. The goal is to bu
 
 The planned features for DevScriber at the time of writing are as follows:
 
-⭐ README.md file generator<br />
-⭐ CHANGELOG.md file generator<br />
-⭐ CONTRIBUTING.md file generator<br />
-⭐ CODE_OF_CONDUCT.md file generator<br />
-⭐ RELEASE_NOTES.md file generator<br />
+⭐ [README.md](./templates/readme-template.md) file generator<br />
+⭐ [CHANGELOG.md](./templates/changelog-template.md) file generator<br />
+⭐ [CONTRIBUTING.md](./templates/contributing-template.md) file generator<br />
+⭐ [CODE_OF_CONDUCT.md](./templates/codeofconduct-template.md) file generator<br />
+⭐ [RELEASE_NOTES.md](./templates/releasenotes-template.md) file generator<br />
 ⭐ GitHub user profile README.md file generator<br />
 ⭐ File updater (used to replace existing files)<br />
 ⭐ Customizable filenames, titles, images and shield badges
