@@ -64,7 +64,7 @@ Options:
 
 This project is intended for personal use, but I still wanted to give it a meaningful name and custom icon to make it feel more _official_. There are a few hidden meanings in the tool's name:
 
-- The tool's purpose is to make scaffolding of common development documentation easier, thus it is a scribe to developers or a dev's scribe.
+- The tool's purpose is to make the creation of common development documentation easier, thus it is a scribe to developers or a dev's scribe.
 - DevScribe was the first option but DevScriber had a better ring to it and still makes sense.
     - ...a scriber is a tool used to mark materials like wood, steel, metal or plastics. Similarly, documentation _marks_ the code that developer's write.
 - DevScribe (DevScriber) is also a cute play on the word describe (describer).
