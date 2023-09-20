@@ -84,6 +84,47 @@ var _ = Describe("Main", func() {
 		})
 	})
 
+	Describe("Generate file", func() {
+		Context("when the file template is readme-template", func() {
+			It("should create a new file with no errors", func() {
+				testInput := userInput{
+					template: "readme-template",
+				}
+				result, err := generateFile(testInput)
+
+				Expect(err).To(BeNil())
+				Expect(result).To(Equal(""))
+				// TODO: add check for new file?
+			})
+		})
+
+		Context("when the file template is readme", func() {
+			It("should create a new file with no errors", func() {
+				testInput := userInput{
+					template: "readme",
+				}
+				result, err := generateFile(testInput)
+
+				Expect(err).To(BeNil())
+				Expect(result).To(Equal(""))
+				// TODO: add check for new file?
+			})
+		})
+
+		Context("when the template argument isn't valid", func() {
+			It("should return a not valid error", func() {
+				expectedError := errors.New("the template filepath is no longer valid. please try again")
+				testInput := userInput{
+					template: "fake-template",
+				}
+				result, err := generateFile(testInput)
+
+				Expect(err).To(Equal(expectedError))
+				Expect(result).To(Equal(""))
+			})
+		})
+	})
+
 	Describe("Validate template path", func() {
 		Context("when the template exists", func() {
 			It("should return true", func() {
