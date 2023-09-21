@@ -60,6 +60,20 @@ Options:
         Template type to base the new document on (default "readme-template")
 ```
 
+## Testing
+
+```shell
+# Running Tests
+ginkgo
+# or
+go test
+
+# Running Code Coverage Scripts
+$ go test -coverprofile=coverage.out ./...
+$ go tool cover -func=coverage.out
+$ go tool cover -html=coverage.out
+```
+
 ## Fun Facts
 
 This project is intended for personal use, but I still wanted to give it a meaningful name and custom icon to make it feel more _official_. There are a few hidden meanings in the tool's name:

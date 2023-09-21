@@ -74,6 +74,11 @@ func getUserInput() (userInput, error) {
 		return userInput{}, errors.New("invalid template value. use readme-template or readme")
 	} */
 
+	// TODO: clean this up later
+	if *template == "readme" {
+		*template = "readme-template"
+	}
+
 	// Validate name
 	if *name == "" {
 		return userInput{}, errors.New("there was an error setting the document's name")
@@ -119,7 +124,7 @@ func generateFile(templatePath string) (string, error) {
 	}
 
 	// TODO: Refactor later
-	templatePath = "./templates/" + templatePath
+	templatePath = "./templates/" + templatePath + ".md"
 
 	if !isAvailable {
 		exitGracefully(fmt.Errorf("the %s filepath does not exist. please try again", templatePath))
