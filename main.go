@@ -7,6 +7,7 @@ import (
 	"io"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -15,7 +16,7 @@ type userInput struct {
 	template string
 	name     string
 	imageUrl string
-	// TODO: add optional user input variable for destination filepath
+	all      bool
 }
 
 // The entry point of the application
@@ -42,8 +43,12 @@ func main() {
 	fmt.Printf("\r\n- template: %s", inputs.template)
 	fmt.Printf("\r\n- imageUrl: %s", inputs.imageUrl)
 
-	// Generate new file
-	_, err = generateFile(inputs)
+	// Generate new file(s)
+	if inputs.all {
+		_, err = generateAllFiles(inputs)
+	} else {
+		_, err = generateFile(inputs.template)
+	}
 	check(err)
 }
 
@@ -59,7 +64,7 @@ func getUserInput() (userInput, error) {
 	template := flag.String("template", "readme-template", "Template type to base the new document on")
 	name := flag.String("name", "README", "Name of the new document")
 	imageUrl := flag.String("imageUrl", "./assets/default_image.png", "Url of image to use to decorate the document")
-	// TODO: Add --all flag that generates all of the available templates in the working directory
+	all := flag.Bool("all", true, "Generates all document template when true")
 
 	// Parse the flag arguments from the terminal
 	flag.Parse()
@@ -81,21 +86,47 @@ func getUserInput() (userInput, error) {
 	}
 
 	// Return validated userInput
-	return userInput{*template, *name, *imageUrl}, nil
+	return userInput{*template, *name, *imageUrl, *all}, nil
+}
+
+func generateAllFiles(inputs userInput) (bool, error) {
+	isSuccessful := false
+
+	templateFiles, err := os.ReadDir("./templates")
+	check(err)
+
+	for _, file := range templateFiles {
+		_, err := generateFile(file.Name())
+		check(err)
+	}
+
+	return isSuccessful, err
 }
 
 // Returns the filepath of the newly create file
-func generateFile(inputs userInput) (string, error) {
-	templatePath := "./templates/readme-template.md"
+func generateFile(templatePath string) (string, error) {
+	isAvailable := false
 
-	// TODO: Determine the template file to use with a switch statement when other templates are added
-	// TODO: Conditionally reset the templatePath in the future
-	if !(inputs.template == "readme-template" || inputs.template == "readme") {
-		return "", errors.New("the template filepath is no longer valid. please try again")
+	// Getting current templates to validate the templatePath
+	availableTemplates, err := os.ReadDir("./templates")
+	check(err)
+
+	for _, file := range availableTemplates {
+		if file.Name() == templatePath || strings.Contains(file.Name(), templatePath) {
+			isAvailable = true
+			break
+		}
+	}
+
+	// TODO: Refactor later
+	templatePath = "./templates/" + templatePath
+
+	if !isAvailable {
+		exitGracefully(fmt.Errorf("the %s filepath does not exist. please try again", templatePath))
 	}
 
 	// Check that template filepath still exists
-	_, err := validateTemplatePath(templatePath)
+	_, err = validateTemplatePath(templatePath)
 	check(err)
 
 	// Open template file
@@ -116,7 +147,22 @@ func generateFile(inputs userInput) (string, error) {
 	// Create new destination file location
 	currentTime := time.Now().UTC().Nanosecond()
 	timeString := strconv.Itoa(currentTime)
-	newFilename := "README_" + timeString + ".md"
+	//newFilename := "README_" + timeString + ".md"
+	var newFilename string
+
+	switch templatePath {
+	case "./templates/changelog-template.md":
+		newFilename = "CHANGELOG_" + timeString + ".md"
+	case "./templates/codeofconduct-template.md":
+		newFilename = "CODE_OF_CONDUCT_" + timeString + ".md"
+	case "./templates/contributing-template.md":
+		newFilename = "CONTRIBUTING_" + timeString + ".md"
+	case "./templates/readme-template.md":
+		newFilename = "README_" + timeString + ".md"
+	case "./templates/releasenotes-template.md":
+		newFilename = "RELEASE_NOTES_" + timeString + ".md"
+	}
+
 	destination, err := os.Create(workingDir + "/" + newFilename)
 	if err != nil {
 		return "", errors.New("error creating the new file destination")
@@ -131,7 +177,7 @@ func generateFile(inputs userInput) (string, error) {
 
 	fmt.Printf("\r\n\r\nSuccess: %s was added to the current directory\r\n", newFilename)
 
-	return "", nil
+	return newFilename, nil
 }
 
 // Ensures the chosen template still exists

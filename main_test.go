@@ -90,7 +90,7 @@ var _ = Describe("Main", func() {
 				testInput := userInput{
 					template: "readme-template",
 				}
-				result, err := generateFile(testInput)
+				result, err := generateFile(testInput.template)
 
 				Expect(err).To(BeNil())
 				Expect(result).To(Equal(""))
@@ -103,7 +103,7 @@ var _ = Describe("Main", func() {
 				testInput := userInput{
 					template: "readme",
 				}
-				result, err := generateFile(testInput)
+				result, err := generateFile(testInput.template)
 
 				Expect(err).To(BeNil())
 				Expect(result).To(Equal(""))
@@ -117,7 +117,7 @@ var _ = Describe("Main", func() {
 				testInput := userInput{
 					template: "fake-template",
 				}
-				result, err := generateFile(testInput)
+				result, err := generateFile(testInput.template)
 
 				Expect(err).To(Equal(expectedError))
 				Expect(result).To(Equal(""))
@@ -128,7 +128,7 @@ var _ = Describe("Main", func() {
 	Describe("Validate template path", func() {
 		Context("when the template exists", func() {
 			It("should return true", func() {
-				isValidTemplate, err := validateTemplatePath("README.md")
+				isValidTemplate, err := validateTemplatePath("./templates/readme-template.md")
 
 				Expect(err).To(BeNil())
 				Expect(isValidTemplate).To(Equal(true))
