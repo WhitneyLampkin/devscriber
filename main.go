@@ -124,7 +124,7 @@ func generateFile(templatePath string) (string, error) {
 	}
 
 	// TODO: Refactor later
-	templatePath = "./templates/" + templatePath + ".md"
+	templatePath = "./templates/" + templatePath
 
 	if !isAvailable {
 		exitGracefully(fmt.Errorf("the %s filepath does not exist. please try again", templatePath))
