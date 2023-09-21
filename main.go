@@ -47,7 +47,7 @@ func main() {
 	if inputs.all {
 		_, err = generateAllFiles(inputs)
 	} else {
-		_, err = generateFile(inputs.template)
+		_, err = generateFile(inputs.template + ".md")
 	}
 	check(err)
 }
@@ -64,15 +64,15 @@ func getUserInput() (userInput, error) {
 	template := flag.String("template", "readme-template", "Template type to base the new document on")
 	name := flag.String("name", "README", "Name of the new document")
 	imageUrl := flag.String("imageUrl", "./assets/default_image.png", "Url of image to use to decorate the document")
-	all := flag.Bool("all", true, "Generates all document template when true")
+	all := flag.Bool("all", false, "Generates all document template when true")
 
 	// Parse the flag arguments from the terminal
 	flag.Parse()
 
 	// Validate template value
-	if !(*template == "readme-template" || *template == "readme") {
+	/* if !(*template == "readme-template" || *template == "readme") {
 		return userInput{}, errors.New("invalid template value. use readme-template or readme")
-	}
+	} */
 
 	// Validate name
 	if *name == "" {
