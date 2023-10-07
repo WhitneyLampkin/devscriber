@@ -52,11 +52,13 @@ The planned features for DevScriber at the time of writing are as follows:
 Usage: devscriber [OPTIONS]...
 
 Options:
-  -imageUrl string
+    -all
+        Generates all available document templates when true (default false)
+    -imageUrl string
         Url of image to use to decorate the document (default "./assests/default_image.png")
-  -name string
+    -name string
         Name of the new document (default "README.md")
-  -template string
+    -template string
         Template type to base the new document on (default "readme-template")
 ```
 
