@@ -42,6 +42,10 @@ The planned features for DevScriber at the time of writing are as follows:
 ⭐ File updater (used to replace existing files)<br />
 ⭐ Customizable filenames, titles, images and shield badges
 
+## Installation
+
+The easiest way to install Devscriber is by downloading the appropriate pre-build binary for your system from the [GitHub release page](https://github.com/WhitneyLampkin/devscriber/releases).
+
 ## Usage
 
 ```txt
