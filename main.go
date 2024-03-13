@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -61,10 +62,10 @@ func getUserInput() (userInput, error) {
 	}
 
 	// Define default image path
-	wd, err := os.Getwd()
+	currentPath, err := os.Executable()
 	check(err)
-	imgPath := wd + "/assets/default-image.png"
-	println(imgPath)
+	wd, _ := filepath.Split(currentPath)
+	imgPath := wd + "assets/default-image.png"
 
 	// Define flags for the template, name and imageUrl arguments
 	template := flag.String("template", "readme-template", "Template type to base the new document on")
