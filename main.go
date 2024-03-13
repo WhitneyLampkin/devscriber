@@ -60,10 +60,16 @@ func getUserInput() (userInput, error) {
 		return userInput{}, errors.New("the template argument is required")
 	}
 
+	// Define default image path
+	wd, err := os.Getwd()
+	check(err)
+	imgPath := wd + "/assets/default-image.png"
+	println(imgPath)
+
 	// Define flags for the template, name and imageUrl arguments
 	template := flag.String("template", "readme-template", "Template type to base the new document on")
 	name := flag.String("name", "README", "Name of the new document")
-	imageUrl := flag.String("imageUrl", "./assets/default-image.png", "Url of image to use to decorate the document")
+	imageUrl := flag.String("imageUrl", imgPath, "Url of image to use to decorate the document")
 	all := flag.Bool("all", false, "Generates all document template when true")
 
 	// Parse the flag arguments from the terminal
