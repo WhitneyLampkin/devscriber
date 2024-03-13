@@ -63,7 +63,7 @@ func getUserInput() (userInput, error) {
 	// Define flags for the template, name and imageUrl arguments
 	template := flag.String("template", "readme-template", "Template type to base the new document on")
 	name := flag.String("name", "README", "Name of the new document")
-	imageUrl := flag.String("imageUrl", "./assets/default_image.png", "Url of image to use to decorate the document")
+	imageUrl := flag.String("imageUrl", "./assets/default-image.png", "Url of image to use to decorate the document")
 	all := flag.Bool("all", false, "Generates all document template when true")
 
 	// Parse the flag arguments from the terminal
