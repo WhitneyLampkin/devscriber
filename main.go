@@ -62,10 +62,10 @@ func getUserInput() (userInput, error) {
 	}
 
 	// Define default image path
-	currentPath, err := os.Executable()
-	check(err)
-	wd, _ := filepath.Split(currentPath)
-	imgPath := wd + "assets/default-image.png"
+	// currentPath, err := os.Executable()
+	// check(err)
+	// wd, _ := filepath.Split(currentPath)
+	imgPath := "https://github.com/WhitneyLampkin/devscriber/blob/main/assets/default-img.png?raw=true"
 
 	// Define flags for the template, name and imageUrl arguments
 	template := flag.String("template", "readme-template", "Template type to base the new document on")
@@ -102,9 +102,16 @@ func getUserInput() (userInput, error) {
 }
 
 func generateAllFiles(inputs userInput) (bool, error) {
+	// TODO: Remove this and simply return nil if there is no error...?
 	isSuccessful := false
 
-	templateFiles, err := os.ReadDir("./templates")
+	// Set templates directory
+	currentPath, err := os.Executable()
+	check(err)
+	wd, _ := filepath.Split(currentPath)
+	tempPath := filepath.Join(wd, "templates")
+
+	templateFiles, err := os.ReadDir(tempPath)
 	check(err)
 
 	for _, file := range templateFiles {
@@ -118,6 +125,22 @@ func generateAllFiles(inputs userInput) (bool, error) {
 // Returns the filepath of the newly create file
 func generateFile(templatePath string) (string, error) {
 	isAvailable := false
+
+	// Get the absolute path of the binary
+	dir, err := filepath.Abs(filepath.Dir(templatePath))
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Use the absolute path to reference the templates directory
+	templatesDir := filepath.Join(dir, "templates")
+	fmt.Println("Test: " + templatesDir)
+
+	// TODO: Remove my failed attempt when I better understand the chosen solution.
+	//currentPath, err := os.Executable()
+	//check(err)
+	//wd, _ := filepath.Split(currentPath)
+	//tempPath := filepath.Join(wd, "templates")
 
 	// Getting current templates to validate the templatePath
 	availableTemplates, err := os.ReadDir("./templates")
