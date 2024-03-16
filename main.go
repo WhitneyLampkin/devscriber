@@ -74,6 +74,7 @@ func getUserInput() (userInput, error) {
 		return userInput{}, errors.New("the template argument is required")
 	}
 
+	// <TODO> Use go:embed to allow users to choose from different images
 	imgPath := "https://github.com/WhitneyLampkin/devscriber/blob/main/assets/default-img.png?raw=true"
 
 	// Define flags for the template, name and imageUrl arguments
