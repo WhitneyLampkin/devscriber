@@ -57,13 +57,14 @@ Usage: devscriber [OPTIONS]...
 
 Options:
     -all
-        Generates all available document templates when true (default false)
+        Generates all available document templates when true (default: false)
     -imageUrl string
-        Url of image to use to decorate the document (default "./assests/default_image.png")
+        Url of image to use to decorate the document (default: ./assests/default_image.png)
     -name string
-        Name of the new document (default "README.md")
+        Name of the new document (default: README_[TIME_STRING].md")
     -template string
-        Template type to base the new document on (default "readme-template")
+        Template type to base the new document on (default: readme)
+        Options: changelog, codeofconduct, contributing, readme, releasenotes
 ```
 
 ## Testing
