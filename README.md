@@ -63,8 +63,8 @@ Options:
     -name string
         Name of the new document (default: README_[TIME_STRING].md")
     -template string
-        Template type to base the new document on (default: readme)
-        Options: changelog, codeofconduct, contributing, readme, releasenotes
+        Template type to base the new document on
+        Available templates: changelog, codeofconduct, contributing, readme, releasenotes (default "readme")
 ```
 
 ## Testing

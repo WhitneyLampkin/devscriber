@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"embed"
 	"errors"
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -76,7 +78,7 @@ func getUserInput() (userInput, error) {
 	imgPath := "https://github.com/WhitneyLampkin/devscriber/blob/main/assets/default-img.png?raw=true"
 
 	// Define flags for the template, name and imageUrl arguments
-	template := flag.String("template", "readme", "Template type to base the new document on")
+	template := flag.String("template", "readme", "Template type to base the new document on\nAvailable templates: changelog, codeofconduct, contributing, readme, releasenotes")
 	name := flag.String("name", "README", "Name of the new document")
 	imageUrl := flag.String("imageUrl", imgPath, "Url of image to use to decorate the document")
 	all := flag.Bool("all", false, "Generates all document template when true")
@@ -95,8 +97,37 @@ func getUserInput() (userInput, error) {
 		return userInput{}, errors.New("there was an error setting the image's Url")
 	}
 
+	// The command "devscriber" with no args will generate a new README file.
+	// Confirm user input to avoid creating unintended files.
+	c := askForConfirmation("Would you like to create a new README file in the working directory?")
+	if !c {
+		fmt.Println("The program will exit now. Please try again.")
+		os.Exit(1)
+	}
+
 	// Return validated userInput
 	return userInput{*template, *name, *imageUrl, *all}, nil
+}
+
+func askForConfirmation(s string) bool {
+	reader := bufio.NewReader(os.Stdin)
+
+	for {
+		fmt.Printf("%s [y/n]: ", s)
+
+		response, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		response = strings.ToLower(strings.TrimSpace(response))
+
+		if response == "y" || response == "yes" {
+			return true
+		} else if response == "n" || response == "no" {
+			return false
+		}
+	}
 }
 
 func generateAllFiles() (bool, error) {
