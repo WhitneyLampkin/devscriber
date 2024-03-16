@@ -13,6 +13,7 @@ import (
 	"time"
 )
 
+// <TODO> Use default image from assets folder
 //go:embed assets
 //var a embed.FS
 
@@ -37,6 +38,7 @@ func main() {
 		fmt.Println("+-+-+-+-+-+-+-+-+-+-+")
 		fmt.Println("|D|e|v|S|c|r|i|b|e|r|")
 		fmt.Println("+-+-+-+-+-+-+-+-+-+-+")
+		fmt.Println("\r\nFind more information at: https://github.com/WhitneyLampkin/devscriber")
 		fmt.Printf("\r\nUsage: %s [OPTIONS]...\n\nOptions:\n", os.Args[0])
 		flag.PrintDefaults()
 	}
