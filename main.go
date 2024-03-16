@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"errors"
 	"flag"
 	"fmt"
@@ -11,6 +12,15 @@ import (
 	"strings"
 	"time"
 )
+
+//go:embed assets
+//var a embed.FS
+
+//go:embed templates
+var t embed.FS
+
+// Store template files
+var tFiles = make(map[string]string)
 
 // A userInput stores the options provided by the user
 type userInput struct {
@@ -44,6 +54,9 @@ func main() {
 	fmt.Printf("\r\n- template: %s", inputs.template)
 	fmt.Printf("\r\n- imageUrl: %s", inputs.imageUrl)
 
+	err = storeTemplateFiles()
+	check(err)
+
 	// Generate new file(s)
 	if inputs.all {
 		_, err = generateAllFiles(inputs)
@@ -61,10 +74,6 @@ func getUserInput() (userInput, error) {
 		return userInput{}, errors.New("the template argument is required")
 	}
 
-	// Define default image path
-	// currentPath, err := os.Executable()
-	// check(err)
-	// wd, _ := filepath.Split(currentPath)
 	imgPath := "https://github.com/WhitneyLampkin/devscriber/blob/main/assets/default-img.png?raw=true"
 
 	// Define flags for the template, name and imageUrl arguments
@@ -105,6 +114,7 @@ func generateAllFiles(inputs userInput) (bool, error) {
 	// TODO: Remove this and simply return nil if there is no error...?
 	isSuccessful := false
 
+	// [OLD METHOD]
 	// Set templates directory
 	currentPath, err := os.Executable()
 	check(err)
@@ -213,6 +223,29 @@ func generateFile(templatePath string) (string, error) {
 	fmt.Printf("\r\n\r\nSuccess: %s was added to the current directory\r\n", newFilename)
 
 	return newFilename, nil
+}
+
+func storeTemplateFiles() error {
+	templates, err := t.ReadDir("templates")
+	check(err)
+
+	for _, item := range templates {
+		if item.IsDir() {
+			continue
+		}
+
+		info, _ := item.Info()
+
+		fmt.Println("Info: ", info)
+
+		i, _ := t.Open("templates/" + item.Name())
+		b := make([]byte, info.Size())
+		i.Read(b)
+
+		tFiles[item.Name()] = string(b)
+	}
+
+	return nil
 }
 
 // Ensures the chosen template still exists
