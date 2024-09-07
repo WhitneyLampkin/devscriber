@@ -1,6 +1,6 @@
 <h1 align="center" style="border-bottom: none">
     <a href="https://github.com/WhitneyLampkin/devscriber" target="_blank">
-        <img alt="DevScriber" src="./assets/devscriber.png" style="border-radius: 50%; height: 100px;">
+        <img alt="DevScriber" src="./assets/devscriber.png" style="border-radius:50%; height:100px;">
     </a>
     <br>
     DevScriber
