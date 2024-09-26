@@ -1,6 +1,6 @@
 <h1 align="center" style="border-bottom: none">
     <a href="https://github.com/WhitneyLampkin/devscriber" target="_blank">
-        <img alt="DevScriber" src="./assets/devscriber.png" style="border-radius:50%; height:100px;">
+        <img alt="DevScriber" src="./assets/Designer.png" style="border-radius:50%; height:100px;">
     </a>
     <br>
     DevScriber
@@ -102,6 +102,6 @@ GNU General Public License 3.0, see [LICENSE](./LICENSE).
 
 <h1 align="center" style="border-bottom: none; margin-top: 50px;">
     <a href="https://github.com/WhitneyLampkin/devscriber" target="_blank">
-        <img alt="DevScriber" src="./assets/devscriber.png" style="border-radius: 5%; height: 150px;">
+        <img alt="DevScriber" src="./assets/Designer.png" style="border-radius: 5%; height: 150px;">
     </a>
 </h1>
